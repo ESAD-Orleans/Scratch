@@ -1,0 +1,23 @@
+.texte {
+ 
+font-size: 14px;
+line-height: 14,4px;
+color: #000;
+text-align: justify
+}
+    
+<!--img {
+    width:100%;
+}-->
+
+.imagetest {
+ position: relative;
+    left: 152px;
+    max-width: inherit
+}
+
+.imagedec {
+    position: relative;
+    right: 153px;
+    max-width: inherit
+}

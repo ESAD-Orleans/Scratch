@@ -1,0 +1,16 @@
+.scratch{
+  position:relative;
+  display:inline-block;
+  max-width:100%;
+}
+.scratch img{
+  display:block;
+  max-width:100%;
+}
+.scratch canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
