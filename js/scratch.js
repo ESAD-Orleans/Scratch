@@ -13,8 +13,25 @@ jQuery(document).ready(function(){
       context =   canvas.getContext('2d');
   
   function ResizeCanvas(){
+    var backupImage = new Image(); 
+     // backupImage.src = backupImageData;
+    try{
+        backupImage.src = canvas.toDataURL("image/png");
+    }catch(err){
+    }
     w = context.canvas.width = $img.width();
     h = context.canvas.height = $img.height();
+      
+      function Redraw(){
+        try{  
+        context.globalCompositeOperation="source-over";
+        context.drawImage(backupImage,0,0,w,h);
+        context.globalCompositeOperation="source-in";
+        context.drawImage(scratchImg,0,0,w,h);
+        }catch(err){console.log(err)}  
+      }
+      window.requestAnimationFrame(Redraw);
+      setTimeout(Redraw,0);
   }
   ResizeCanvas();
   $(window).resize(ResizeCanvas);
