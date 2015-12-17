@@ -17,22 +17,22 @@ jQuery(document).ready(function(){
     h = context.canvas.height = $img.height();
   }
   ResizeCanvas();
+  $(window).resize(ResizeCanvas);
     
-  $(scratchImg).on('load',function(){
-    //context.drawImage(scratchImg,0,0,w,h);
-  });
+  $(scratchImg).on('load',ResizeCanvas);
   
   var x0 = -1, y0 = -1;
   function Move(e){
     e.stopPropagation();
     e.preventDefault();
-    var x = e.x, y = e.y;
-    if(x0 > 0){
+    var offset = $scratch.offset(), 
+        x = Math.round(e.x-offset.left), y =         Math.round(e.y-offset.top);
+    if(x0 >= 0){
       context.globalCompositeOperation="source-over";
-      //context.stroke="#000";
-        context.beginPath();
+        
+      context.beginPath();
       context.lineWidth =20;
-      context.moveTo(e.x,e.y);
+      context.moveTo(x,y);
       context.lineTo(x0,y0);
       context.stroke();
       context.closePath();
