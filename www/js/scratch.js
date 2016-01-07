@@ -2,10 +2,12 @@ jQuery(document).ready(function(){
 
     $('.scratch').each(function(){
   
-  var scratch = this, $scratch = $(scratch),
-      $img = $('img',scratch);
-  $scratch.append($('<canvas />')),
-    scratchImg = new Image();
+  var scratch = this, 
+      $scratch = $(scratch),
+      $img = $('img',scratch),
+      scratchImg = new Image();
+      
+    $scratch.append($('<canvas />'));
   
   var $canvas = $('canvas',scratch),
       canvas = $canvas.get(0),
@@ -42,6 +44,7 @@ jQuery(document).ready(function(){
   function Move(e){
     e.stopPropagation();
     e.preventDefault();
+      console.log(scratchImg);
     var offset = $scratch.offset(), 
         x = Math.round(e.x-offset.left), y =         Math.round(e.y-offset.top);
     if(x0 >= 0){
@@ -62,6 +65,7 @@ jQuery(document).ready(function(){
   $scratch.on('drag',Move);
   
   scratchImg.src = $img.data('scratch-src');
+        console.log(scratchImg.src);
   
 });
 
