@@ -4,3 +4,21 @@
     height:auto;
     display: block;
 }
+
+.header{
+    height: 100vh;
+}
+
+.header .scrollDown{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.maincontent{
+    margin: 0 auto 100px;
+}
+.section{
+    margin:50px 0 50px;
+}
