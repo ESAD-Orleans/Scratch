@@ -12,7 +12,25 @@ jQuery(document).ready(function(){
   var $canvas = $('canvas',scratch),
       canvas = $canvas.get(0),
       w, h,
-      context =   canvas.getContext('2d');
+      context =   canvas.getContext('2d'),
+      cleanInterval;
+        
+  function CleanCanvas(){
+  
+      var scrollTop = $(window).scrollTop(),
+          scrollBottom = scrollTop+$(window).height(),
+          offsetTop = $canvas.offset().top,
+         offsetBottom =  offsetTop + $canvas.height();
+      if(
+           offsetTop > scrollBottom
+         ||
+          offsetBottom < scrollTop
+          ){
+          context.clearRect(0,0,w,h);
+      }
+  }
+        
+  cleanInterval = setInterval(CleanCanvas,20000);       
   
   function ResizeCanvas(){
     var backupImage = new Image(); 
