@@ -30,7 +30,7 @@ jQuery(document).ready(function(){
       }
   }
         
-  cleanInterval = setInterval(CleanCanvas,20    000);       
+  cleanInterval = setInterval(CleanCanvas,20000);       
   
   function ResizeCanvas(){
     var backupImage = new Image(); 
